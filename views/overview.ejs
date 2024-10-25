@@ -1,0 +1,31 @@
+<%- include ("header") -%>
+        <h1>Űrlények és Bolygók Áttekintése</h1>
+        <p>Itt láthatók a különböző űrlényfajok és az általuk kolonizált bolygók.</p>
+        <a href="/">Vissza a főoldalra</a>
+        <h1>Aliens & Planets Overview</h1>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Technology Level</th>
+            </tr>
+        </thead>
+        <% for (let i = 0; i < aliens.length; i++) { const alien = aliens[i] } %>
+        <tbody>
+            <tr>
+                <td><%= alien.id %></td>
+                <td><%= alien.nev %></td>
+                <td><%= alien.fajta %></td>
+                <td><%= alien.fejlettseg %></td>
+                <td class="text-nowrap">
+                    <a class="btn btn-primary btn-sm" href="edit_alien.ejs">Szerkesztés</a>
+                    <button class="btn btn-danger btn-sm">Törlés</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<%- include ("footer") -%>
