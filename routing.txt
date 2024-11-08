@@ -1,0 +1,37 @@
+ROUTING
+
+GET     /                        főoldal, rövid leírás az oldaról és linkek a továbbiakhoz
+
+GET     /overview                megjelenik a bolygók és a ürlények egy táblázatban ahonnan a különböző adataikat lehet leolvasni
+GET     /new-alien               új ürlény létrehozása form
+POST    /new-alien               új adatok mentése
+GET     /new-planet              új bolygó létrehozó form
+POST    /new-planet              adat mentése
+
+GET     /alien/:id               kivalásztott alien adatainak megjelenítése
+GET     /planet/:id              kiválasztott planet adatainak megtekintése
+
+GET, POST     /alien-edit/:id          egy adott űrlény adatainak szerkesztése.
+              /alien-edit/:id          szerkesztés mentése
+GET, POST     /edit-planet/:id         egy adott bolygó adatainak szerkesztése.
+              /edit-planet/:id         szerkesztés mentése
+
+POST    /delete-alien/:id		 egy adott űrlény törlése az adatbázisból. gomb katt
+POST    /delete-planet/:id		 egy adott bolygó törlése az adatbázisból. gomb katt
+
+GET     /fish                    easter egg halacska ><>
+
+renderMW
+
+    middleware/alien
+        getAlienMW.js
+        saveAlienMW.js
+        delAlienMW.js
+
+
+    middleware/planet
+        getPalnetMW.js
+        savePlanetMW.js
+        delPlanetMW.js
+
+    fishMW.js
