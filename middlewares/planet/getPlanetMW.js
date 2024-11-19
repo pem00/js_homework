@@ -7,7 +7,11 @@ module.exports = function(objRepo) {
             _id: 'planet1',
             tipus: 'gázóriás',
             lakhatosag: 'talan',
-            statusz: 'nem'
+            statusz: 'nem',
+            _kolonizacio: {
+                type: Schema.Types.ObjectID,
+                ref: 'Alien'
+            }
         };
         return next();
     };

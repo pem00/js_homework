@@ -1,18 +1,19 @@
 /*
     Load all bolygók from the database
 */
+const requireOption = require('../requireOption');
+
 module.exports = function(objRepo) {
+    const AlienModel = requireOption(objRepo, 'AlienModel');
+
     return function(req, res, next) {
-        res.locals.aliens = [
-        {
-            _id: "1233",
-            nev: "Chipukara",
-            fajta: "hüllő",
-            fejlettseg: "very much",
-            coloniz: "1",
-            coloniz_nev: "Marsoloxod"
-        },
-    ]
+        AlienModel.find({}, (err, alien) => {
+            if (err) {
+                return next(err);
+            }
+
+            res.locals.alien = alien;
             return next();
-    }
-}
+        });
+    };
+};

@@ -1,0 +1,43 @@
+<%- include('header') -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Űrlény 
+                <% if (typeof alien === 'undefined') { %>
+                    létrehozás
+                <% } else { %>
+                    módosítás
+                <% } %>
+            </h2>
+            <hr />
+            <form method="post">
+                <div class="form-group">
+                    <label for="species">Faj</label>
+                    <select class="form-control" id="species" name="species">
+                        <option value="robotic" <%= (typeof alien !== 'undefined' && alien.species === 'robotic') ? 'selected' : '' %>>Roboti</option>
+                        <option value="humanoid" <%= (typeof alien !== 'undefined' && alien.species === 'humanoid') ? 'selected' : '' %>>Emberszabású</option>
+                        <option value="reptilian" <%= (typeof alien !== 'undefined' && alien.species === 'reptilian') ? 'selected' : '' %>>Hüllő</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="technologyLevel">Technológiai fejlettség</label>
+                    <select class="form-control" id="technologyLevel" name="technologyLevel">
+                        <option value="low" <%= (typeof alien !== 'undefined' && alien.technologyLevel === 'low') ? 'selected' : '' %>>Kicsit</option>
+                        <option value="medium" <%= (typeof alien !== 'undefined' && alien.technologyLevel === 'medium') ? 'selected' : '' %>>Közepesen</option>
+                        <option value="high" <%= (typeof alien !== 'undefined' && alien.technologyLevel === 'high') ? 'selected' : '' %>>Erősen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="colonization">Kolonizációs tevékenység</label>
+                    <textarea class="form-control" id="colonization" name="colonization" rows="3"><%= (typeof alien !== 'undefined') ? alien.colonization : '' %></textarea>
+                    <small class="form-text text-muted">Írd be a bolygókat és azok számát (pl. Föld: 3, Mars: 2).</small>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Mentés" />
+                <a class="btn btn-link" href="/aliens">Mégsem</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') -%>

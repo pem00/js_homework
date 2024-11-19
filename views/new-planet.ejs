@@ -1,0 +1,18 @@
+<h2>Add New Planet</h2>
+
+<form action="/planet/new" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="type">Type:</label>
+    <input type="text" id="type" name="type" required>
+    
+    <label for="habitability">Habitability:</label>
+    <select id="habitability" name="habitability">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select>
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
