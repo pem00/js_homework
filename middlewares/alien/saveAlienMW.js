@@ -34,6 +34,7 @@ module.exports = function(objRepo) {
             }
 
             return res.redirect('/overview');
+            //return res.redirect('/alien/${res.locals.planet._id}');
         });
     };
 };
