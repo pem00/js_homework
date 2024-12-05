@@ -20,9 +20,13 @@ module.exports = function(objRepo) {
             res.locals.alien = new AlienModel();
         }
 
+        if (Number.isNaN(parseInt(req.boy.kolon_db, 10))) {
+            return next(new Error("A kolonizációk száma számmal legyen megadva."));
+        }
+
         res.locals.alien.faj = req.body.faj;
         res.locals.alien.tech = req.body.tech;
-        res.locals.alien.kolon_db = req.body.kolon_db;
+        res.locals.alien.kolon_db = parseInt(req.body.kolon_db, 10);
 
         res.locals.alien.save(err => {
             if (err) {
